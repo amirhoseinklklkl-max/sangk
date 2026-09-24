@@ -1,0 +1,33 @@
+package com.ancientpersia.rps.data
+
+/**
+ * پوست‌های (اسکین‌های) دست در فروشگاه.
+ * پوست شاهنشاهی فقط از طریق بسته شاهنشاهی در بازار سیاه باز می‌شود.
+ */
+data class Skin(
+    val id: String,
+    val name: String,
+    val price: Int,
+    val desc: String,
+    val imperial: Boolean = false
+)
+
+object SkinRepo {
+
+    val all: List<Skin> = listOf(
+        Skin("default", "پوست پهلوانی", 0, "دست طبیعی پهلوان"),
+        Skin("gol", "تتو گل", 120, "گل سرخ بر دست پهلوان"),
+        Skin("iran", "پرچم ایران", 180, "ایران بر دستان توست"),
+        Skin("hakhamaneshi", "سرباز هخامنشی", 250, "نشان سپاه هخامنشی"),
+        Skin("bronze", "دست مفرغی", 300, "مفرغی چون سلاح جیوان"),
+        Skin("gold", "دست طلایی", 400, "رنگ گنج شایگان"),
+        Skin("khatam", "خاتم‌کاری", 450, "هنر دست استادان شیراز"),
+        Skin("imperial", "دست شاهنشاهی", -1, "نگین لاجورد شاهان", imperial = true),
+    )
+
+    fun byId(id: String): Skin = all.firstOrNull { it.id == id } ?: all[0]
+
+    /** نام drawable برای پوست و حالت دست، مثل hand_gol_fist */
+    fun drawableName(skinId: String, gesture: com.ancientpersia.rps.game.Gesture): String =
+        "hand_${skinId}_${gesture.name.lowercase()}"
+}
