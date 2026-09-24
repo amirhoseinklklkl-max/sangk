@@ -22,7 +22,7 @@ import com.ancientpersia.rps.data.Opponents
 import com.ancientpersia.rps.data.SkinRepo
 import com.ancientpersia.rps.databinding.FragmentGameBinding
 import com.ancientpersia.rps.game.Gesture
-import com.ancientpersia.rps.game.Outcome
+import com.ancientpersia.rps.game.RpsGame.Outcome
 import com.ancientpersia.rps.game.RpsGame
 import com.ancientpersia.rps.util.PersianUtil
 import com.ancientpersia.rps.util.Res
